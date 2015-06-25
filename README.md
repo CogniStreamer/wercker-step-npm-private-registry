@@ -8,14 +8,14 @@ Sets the npm-registry to `http://registry.company.com`.
 
 ```
 - samverschueren/npm-private-registry:
-	host: http://registry.company.com
+	host: http://registry.mycompany.com
 ```
 
 If you have to sign in, provide the credentials for the user.
 
 ```
 - samverschueren/npm-private-registry:
-	host: http://registry.company.com
+	host: http://registry.mycompany.com
 	username: myUsername
 	password: myPassword
 	email: myEmail
