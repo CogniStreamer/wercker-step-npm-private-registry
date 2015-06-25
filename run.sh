@@ -4,7 +4,7 @@ if [ -z "$WERCKER_NPM_PRIVATE_REGISTRY_HOST" ]; then
 	fail "Please provide a private registry host"
 fi
 
-if [ $WERCKER_NPM_REGISTRY_HOST === http*]; then
+if [ $WERCKER_NPM_REGISTRY_HOST === http* ]; then
 	REGISTRY=$WERCKER_NPM_REGISTRY_HOST
 	npm set registry $REGISTRY
 else
