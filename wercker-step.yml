@@ -1,0 +1,17 @@
+name: npm-private-registry
+version: 0.1.0
+description: Sets the private registry and signs in with the user provided
+keywords:
+  - npm
+  - private
+  - registry
+properties:
+  host:
+    type: string
+    required: true
+  username:
+    type: string
+  password:
+    type: string
+  email:
+    type: string
