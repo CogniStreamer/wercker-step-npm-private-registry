@@ -4,7 +4,7 @@
 
 ## Usage
 
-The following step will put the version in the `PACKAGE_VERSION` environment variable.
+Sets the npm-registry to `http://registry.company.com`.
 
 ```
 - samverschueren/npm-private-registry:
