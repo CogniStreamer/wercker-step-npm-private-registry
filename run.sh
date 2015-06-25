@@ -24,10 +24,10 @@ if [ -n "$WERCKER_NPM_PRIVATE_REGISTRY_AUTH_TOKEN" ]; then
 	# Append the token to the ~/.npmrc file
 	
 	# Remove http: or https:
-	TEMP = ${REGISTRY#*:}
+	TEMP=${REGISTRY#*:}
 	
 	# Remove trailing slash
-	TEMP = ${TEMP%/}
+	TEMP=${TEMP%/}
 	
 	# Write the line to the ~/.npmrc file
 	echo "$TEMP/:_authToken=\"$WERCKER_NPM_PRIVATE_REGISTRY_AUTH_TOKEN\"" >> ~/.npmrc
