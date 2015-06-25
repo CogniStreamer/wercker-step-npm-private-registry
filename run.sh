@@ -9,9 +9,6 @@ if [[ $WERCKER_NPM_PRIVATE_REGISTRY_HOST == http* ]]; then
 	npm set registry $REGISTRY
 else
 	REGISTRY=http://$WERCKER_NPM_PRIVATE_REGISTRY_HOST
-	
-	echo $REGISTRY
-	
 	npm set registry $REGISTRY
 fi
 
