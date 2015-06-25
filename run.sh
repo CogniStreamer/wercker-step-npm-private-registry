@@ -1,19 +1,7 @@
 #!/bin/bash
 
 if [ -z "$WERCKER_NPM_PRIVATE_REGISTRY_HOST" ]; then
-	fail "Please provide a registry host"
-fi
-
-if [ -z "$WERCKER_NPM_PRIVATE_REGISTRY_USERNAME" ]; then
-	fail "Please provide a username"
-fi
-
-if [ -z "$WERCKER_NPM_PRIVATE_REGISTRY_PASSWORD" ]; then
-	fail "Please provide a password"
-fi
-
-if [ -z "$WERCKER_NPM_PRIVATE_REGISTRY_EMAIL" ]; then
-	fail "Please provide an email address"
+	fail "Please provide a private registry host"
 fi
 
 if [ $WERCKER_NPM_REGISTRY_HOST === http*]; then
@@ -24,8 +12,10 @@ else
 	npm set registry $REGISTRY
 fi
 
+if [ -n "$WERCKER_NPM_PRIVATE_REGISTRY_USERNAME" ] && [ -n "$WERCKER_NPM_PRIVATE_REGISTRY_PASSWORD" ] && [ -z "$WERCKER_NPM_PRIVATE_REGISTRY_EMAIL" ]; then
 npm adduser --registry $REGISTRY <<EOF
 $WERCKER_NPM_REGISTRY_USERNAME
 $WERCKER_NPM_REGISTRY_PASSWORD
 $WERCKER_NPM_REGISTRY_EMAIL
 EOF
+fi
