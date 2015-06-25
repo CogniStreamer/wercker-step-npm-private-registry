@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 if [ -z "$WERCKER_NPM_PRIVATE_REGISTRY_HOST" ]; then
 	fail "Please provide a private registry host"
 fi
@@ -19,3 +21,5 @@ $WERCKER_NPM_PRIVATE_REGISTRY_PASSWORD
 $WERCKER_NPM_PRIVATE_REGISTRY_EMAIL
 EOF
 fi
+
+set +x
