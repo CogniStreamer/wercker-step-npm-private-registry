@@ -8,15 +8,15 @@ Sets the npm-registry to `http://registry.company.com`.
 
 ```
 - samverschueren/npm-private-registry:
-	host: http://registry.mycompany.com
+    host: http://registry.mycompany.com
 ```
 
 If you have to sign in, provide the credentials for the user.
 
 ```
 - samverschueren/npm-private-registry:
-	host: http://registry.mycompany.com
-	auth_token: myAuthToken
+    host: http://registry.mycompany.com
+    auth_token: myAuthToken
 ```
 
 The auth token can be found in the `~/.npmrc` file after signing in at the private repository.
