@@ -1,5 +1,5 @@
 name: npm-private-registry
-version: 0.2.7
+version: 0.2.8
 description: Sets the private registry and signs in with the user provided
 keywords:
   - npm
