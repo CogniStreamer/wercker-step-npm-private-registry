@@ -20,6 +20,11 @@ else
     npm set registry $REGISTRY
 fi
 
+if [ -n "$WERCKER_NPM_PRIVATE_REGISTRY_SCOPE" ]; then
+    REGISTRY_KEY="@$WERCKER_NPM_PRIVATE_REGISTRY_SCOPE:registry"
+    npm set $REGISTRY_KEY https://registry.yarnpkg.com/
+fi
+
 if [ -n "$WERCKER_NPM_PRIVATE_REGISTRY_AUTH_TOKEN" ]; then
     # Append the token to the ~/.npmrc file
 
@@ -31,9 +36,4 @@ if [ -n "$WERCKER_NPM_PRIVATE_REGISTRY_AUTH_TOKEN" ]; then
 
     # Write the line to the ~/.npmrc file
     echo "$TEMP/:_authToken=\"$WERCKER_NPM_PRIVATE_REGISTRY_AUTH_TOKEN\"" >> ~/.npmrc
-fi
-
-if [ -n "$WERCKER_NPM_PRIVATE_REGISTRY_SCOPE" ]; then
-    REGISTRY_KEY="@$WERCKER_NPM_PRIVATE_REGISTRY_SCOPE:registry"
-    npm set $REGISTRY_KEY $REGISTRY
 fi
