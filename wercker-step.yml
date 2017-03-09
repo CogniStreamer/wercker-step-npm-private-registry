@@ -11,3 +11,5 @@ properties:
     required: true
   auth_token:
     type: string
+  scope:
+    type: string

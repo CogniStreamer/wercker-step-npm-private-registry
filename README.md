@@ -19,6 +19,15 @@ If you have to sign in, provide the credentials for the user.
     auth_token: myAuthToken
 ```
 
+If you also have to use a scope, provide the scope as an additional property:
+
+```
+- samverschueren/npm-private-registry:
+    host: http://registry.mycompany.com
+    auth_token: myAuthToken
+    scope: myScope
+```
+
 The auth token can be found in the `~/.npmrc` file after signing in at the private repository.
 
 ## Author
