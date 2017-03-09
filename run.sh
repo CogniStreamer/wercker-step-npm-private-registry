@@ -35,5 +35,5 @@ if [ -n "$WERCKER_NPM_PRIVATE_REGISTRY_AUTH_TOKEN" ]; then
     TEMP=${TEMP%/}
 
     # Write the line to the ~/.npmrc file
-    echo "$TEMP/:_authToken=\"$WERCKER_NPM_PRIVATE_REGISTRY_AUTH_TOKEN\"" >> ~/.npmrc
+    echo "$TEMP/:_authToken=$WERCKER_NPM_PRIVATE_REGISTRY_AUTH_TOKEN" >> ~/.npmrc
 fi
