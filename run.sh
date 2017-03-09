@@ -13,22 +13,28 @@ fi
 if [[ $WERCKER_NPM_PRIVATE_REGISTRY_HOST == http* ]]; then
     # If the host starts with http, use it as is
     REGISTRY=$WERCKER_NPM_PRIVATE_REGISTRY_HOST
-    npm set registry $REGISTRY
 else
     # Prepend the host with http:// if it was not set
     REGISTRY=http://$WERCKER_NPM_PRIVATE_REGISTRY_HOST
-    npm set registry $REGISTRY
 fi
 
 if [ -n "$WERCKER_NPM_PRIVATE_REGISTRY_AUTH_TOKEN" ]; then
     # Append the token to the ~/.npmrc file
-    
+
     # Remove http: or https:
     TEMP=${REGISTRY#*:}
-    
+
     # Remove trailing slash
     TEMP=${TEMP%/}
-    
+
     # Write the line to the ~/.npmrc file
     echo "$TEMP/:_authToken=\"$WERCKER_NPM_PRIVATE_REGISTRY_AUTH_TOKEN\"" >> ~/.npmrc
 fi
+
+REGISTRY_KEY="registry"
+
+if [ -n "$WERCKER_NPM_PRIVATE_REGISTRY_SCOPE" ]; then
+    REGISTRY_KEY="$WERCKER_NPM_PRIVATE_REGISTRY_SCOPE:$REGISTRY_KEY"
+fi
+
+npm set $REGISTRY_KEY $REGISTRY
