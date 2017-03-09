@@ -1,6 +1,6 @@
 # wercker-step-npm-private-registry
 
-> Changes the registry to a private registry
+> Changes the registry to a private registry.
 
 ## Usage
 
