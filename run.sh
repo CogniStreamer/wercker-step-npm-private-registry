@@ -11,7 +11,7 @@ if [ -e "~/.npmrc" ]; then
 fi
 
 if [[ $WERCKER_NPM_PRIVATE_REGISTRY_HOST == http* ]]; then
-    # If the host starts with http, use it as is
+    # If the host starts with http or https, use it as is
     REGISTRY=$WERCKER_NPM_PRIVATE_REGISTRY_HOST
     # npm set registry $REGISTRY
 else
@@ -29,7 +29,7 @@ if [ -n "$WERCKER_NPM_PRIVATE_REGISTRY_AUTH_TOKEN" ]; then
     # Append the token to the ~/.npmrc file
 
     # Remove http: or https:
-    TEMP=${REGISTRY#*:}
+    # TEMP=${REGISTRY#*:}
 
     # Remove trailing slash
     TEMP=${TEMP%/}
